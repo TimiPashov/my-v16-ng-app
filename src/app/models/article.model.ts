@@ -4,7 +4,5 @@ export class Article {
         public description: string,
         public author: string,
         public imageUrl: string,
-    ) {
-
-    }
+    ) { }
 }
