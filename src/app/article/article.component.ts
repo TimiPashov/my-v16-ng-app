@@ -18,7 +18,7 @@ export class ArticleComponent {
   articleDescLen: number;
   showReadMoreBtn: boolean = true;
   showHideBtn: boolean = false;
-  imageIsShown: boolean = true;
+  imageIsShown: boolean = false;
   imageButtonTitle: string = "Show Image";
 
   constructor() {
@@ -26,15 +26,23 @@ export class ArticleComponent {
     this.descToShow = '';
   }
 
-  readMore(){
-
+  readMore() {
+    this.articleDescLen += this.symbols;
+    if (this.articleDescLen > this.articleDesc.length) {
+      this.showHideBtn = true;
+      this.showReadMoreBtn = false;
+    }
+    this.descToShow = this.articleDesc.slice(0, this.articleDescLen);
   }
 
-  hideDesc(){
-
+  hideDesc() {
+    this.articleDescLen = 0;
+    this.showHideBtn = false;
+    this.showReadMoreBtn = true;
   }
 
-  toggleImage(){
-    
+  toggleImage() {
+    this.imageIsShown = !this.imageIsShown;
+    this.imageButtonTitle = this.imageIsShown ? 'Hide Image' : 'Show Image';
   }
 }
