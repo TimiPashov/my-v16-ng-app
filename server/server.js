@@ -1,11 +1,14 @@
 const express = require('express');
-
-const app = express();
-
-app.get('/', (req, res) => {
-    res.send('hello from server')
-})
+const dataBaseConfig = require('./config/dataBase');
 
 
+start();
 
-app.listen(3000, 'Listening on port 3000', () => { console.log('Listening on port 3000') });
+async function start() {
+    const app = express();
+    await dataBaseConfig(app);
+
+    app.listen(3000, () => { console.log('Listening on port 3000') });
+}
+
+
