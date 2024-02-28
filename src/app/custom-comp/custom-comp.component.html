@@ -1,6 +1,9 @@
-<ul>
+<form action="http://localhost:3000/" method="post">
 
-    <li *ngFor="let article of data; index as i">
-        {{article.title}}
-    </li>
-</ul>
+    <input type="text" name="author">
+    <input type="text" name="description">
+    <input type="text" name="title">
+    <input type="text" name="imageUrl">
+    <button>Submit</button>
+
+</form>

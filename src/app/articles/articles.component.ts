@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ArticleData } from '../data/data';
 
+
 @Component({
   selector: 'app-articles',
   templateUrl: './articles.component.html',
