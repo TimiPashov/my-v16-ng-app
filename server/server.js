@@ -24,7 +24,6 @@ async function start() {
 
         const article = req.body;
         await ArticleDB.create(article);
-        console.log(article)
         res.redirect('http://localhost:4200/')
     })
 
