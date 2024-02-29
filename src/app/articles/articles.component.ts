@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { ArticleData } from '../data/data';
+import { Component, OnInit } from '@angular/core';
+import { ArticleService } from '../services/article.service';
+import { Article } from '../models/article.model';
+
 
 
 @Component({
@@ -7,10 +9,17 @@ import { ArticleData } from '../data/data';
   templateUrl: './articles.component.html',
   styleUrls: ['./articles.component.css']
 })
-export class ArticlesComponent {
+export class ArticlesComponent implements OnInit {
+  data: Article[] = [];
 
-  data = new ArticleData().getData();;
 
-  constructor() { }
-  
+  constructor(
+    public articleService: ArticleService
+  ) { }
+
+  ngOnInit(): void {
+    this.articleService.getAllArticles().subscribe(data => this.data = data);
+    console.log(this.data);
+  }
+
 }
